@@ -9,9 +9,6 @@ CREATE TABLE Empresa (
     CNPJ CHAR(14) UNIQUE NOT NULL
 );
 
-INSERT INTO Empresa VALUES
-(DEFAULT, "LaizeCosméticos", "57214940000109");
-
 CREATE TABLE Usuario (
     idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45) NOT NULL,
@@ -86,18 +83,35 @@ CREATE TABLE ItensVenda (
     FOREIGN KEY (fkPlataforma) REFERENCES Plataforma(idPlataforma)
 );
 
+-- Responsável por atualizar a tabela PlataformaProduto ao inserir um item vendido
 DELIMITER //  
 CREATE TRIGGER atualizar_estoque_venda
 AFTER INSERT ON ItensVenda
 FOR EACH ROW
 BEGIN
     UPDATE PlataformaProduto
-    SET quantidadeProduto = quantidadeProduto - NEW.quantidadeProduto
+    SET quantidadeProduto = quantidadeProduto - NEW.quantidade
     WHERE fkProduto = NEW.fkProduto
     AND fkPlataforma = NEW.fkPlataforma;
 END
+//
 DELIMITER ;
 
+-- Esse trigger é similar ao de cima, mas é para atualizar a quantidade total do produto na tabela Produto
+DELIMITER //
+
+CREATE TRIGGER atualizar_quantidade_total_produto
+AFTER INSERT ON ItensVenda
+FOR EACH ROW
+BEGIN
+    UPDATE Produto
+    SET quantidadeProduto = quantidadeProduto - NEW.quantidade
+    WHERE idProduto = NEW.fkProduto;
+END //
+
+DELIMITER ;
+
+-- Serve para inserir na PlataformaProduto (com todas as plataformas) assim que um produto é cadastrado na tabela Produto
 DELIMITER //
 CREATE TRIGGER inserir_plataforma_produto
 AFTER INSERT ON Produto
@@ -110,6 +124,8 @@ BEGIN
 END //
 DELIMITER ;
 
+
+-- Meio que uma constraint para que a quantidade em PlataformaProduto não seja maior que a quantidade em Produto (que é a quantidade total)
 DELIMITER //
 
 CREATE TRIGGER validar_estoque_maximo
@@ -131,3 +147,6 @@ BEGIN
 END//
 
 DELIMITER ;
+
+INSERT INTO Empresa VALUES
+(DEFAULT, "LaizeCosméticos", "57214940000109");
