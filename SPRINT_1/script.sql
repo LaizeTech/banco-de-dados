@@ -37,10 +37,22 @@ CREATE TABLE Produto (
     fkCategoria INT NOT NULL,
     nomeProduto VARCHAR(45) NOT NULL,
     precoCompra DECIMAL(10,2) NOT NULL,
-    dtCompra DATE NOT NULL,
+    dtRegistro DATE NOT NULL,
     FOREIGN KEY (fkCategoria) REFERENCES Categoria(idCategoria),
     quantidadeProduto INT NOT NULL,
-    CONSTRAINT chk_totalProduto_nao_negativo CHECK (quantidadeProduto >= 0)
+    CONSTRAINT chk_totalProduto_nao_negativo CHECK (quantidadeProduto >= 0),
+    statusAtivo TINYINT
+);
+
+CREATE TABLE CompraProduto (
+    idCompraProduto INT PRIMARY KEY AUTO_INCREMENT,
+    fkProduto INT NOT NULL,
+    nomeProduto VARCHAR(45) NOT NULL,
+    precoCompra DECIMAL(10,2) NOT NULL,
+    dtCompra DATE NOT NULL,
+    FOREIGN KEY (fkProduto) REFERENCES Produto(idProduto),
+    quantidadeProduto INT NOT NULL,
+    CONSTRAINT chk_compraProduto_nao_negativo CHECK (quantidadeProduto >= 0)
 );
 
 CREATE TABLE PlataformaProduto (
