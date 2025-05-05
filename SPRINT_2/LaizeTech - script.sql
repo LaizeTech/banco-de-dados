@@ -32,13 +32,32 @@ CREATE TABLE Categoria (
     nomeCategoria VARCHAR(45) NOT NULL
 );
 
+CREATE TABLE StatusVenda(
+idStatusVenda INT PRIMARY KEY AUTO_INCREMENT,
+nomeStatus ENUM("PENDENTE", "CONCLUIDA", "CANCELADO")
+);
+
+CREATE TABLE ParametroProduto(
+idParametroProduto INT PRIMARY KEY AUTO_INCREMENT,
+nomeParametro VARCHAR(45)
+);
+
+CREATE TABLE ValorParametro(
+idValorParametro INT PRIMARY KEY AUTO_INCREMENT,
+nomeParametro VARCHAR(45),
+fkParametroProduto INT NOT NULL,
+FOREIGN KEY (fkParametroProduto) REFERENCES ParametroProduto(idParametroProduto)
+);
+
 CREATE TABLE Produto (
     idProduto INT PRIMARY KEY AUTO_INCREMENT,
     fkCategoria INT NOT NULL,
+    fkValorParametro INT NOT NULL,
     nomeProduto VARCHAR(45) NOT NULL,
     precoCompra DECIMAL(10,2) NOT NULL,
     dtRegistro DATE NOT NULL,
     FOREIGN KEY (fkCategoria) REFERENCES Categoria(idCategoria),
+    FOREIGN KEY (fkValorParametro) REFERENCES ValorParametro(idValorParametro),
     quantidadeProduto INT NOT NULL,
     CONSTRAINT chk_totalProduto_nao_negativo CHECK (quantidadeProduto >= 0),
     statusAtivo TINYINT
@@ -47,7 +66,7 @@ CREATE TABLE Produto (
 CREATE TABLE CompraProduto (
     idCompraProduto INT PRIMARY KEY AUTO_INCREMENT,
     fkProduto INT NOT NULL,
-    nomeProduto VARCHAR(45) NOT NULL,
+    fornecedor VARCHAR(45) NOT NULL,
     precoCompra DECIMAL(10,2) NOT NULL,
     dtCompra DATE NOT NULL,
     FOREIGN KEY (fkProduto) REFERENCES Produto(idProduto),
@@ -67,17 +86,26 @@ CREATE TABLE PlataformaProduto (
     FOREIGN KEY (fkEmpresa) REFERENCES Empresa(idEmpresa)
 );
 
-CREATE TABLE Vendas (
-    idVendas INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE TipoSaida (
+idTipoSaida INT PRIMARY KEY AUTO_INCREMENT,
+NomeTipo VARCHAR(45) NOT NULL
+);
+
+
+CREATE TABLE Saida (
+    idSaida INT PRIMARY KEY AUTO_INCREMENT,
     fkEmpresa INT NOT NULL,
     fkPlataforma INT NOT NULL,
+    fkTipoSaida INT NOT NULL,
+    fkStatusVenda INT NOT NULL,
     dtVenda DATE NOT NULL,
     precoVenda DECIMAL(10,2) NOT NULL,
     totalTaxa DECIMAL(10,2) NOT NULL,
     totalDesconto DECIMAL(10,2) NOT NULL,
-    statusVenda ENUM('PENDENTE', 'CONCLUIDA', 'CANCELADA') NOT NULL,
     FOREIGN KEY (fkEmpresa) REFERENCES Empresa(idEmpresa),
-    FOREIGN KEY (fkPlataforma) REFERENCES Plataforma(idPlataforma)
+    FOREIGN KEY (fkPlataforma) REFERENCES Plataforma(idPlataforma),
+    FOREIGN KEY (fkTipoSaida) REFERENCES TipoSaida(idTipoSaida),
+    FOREIGN KEY (fkStatusVenda) REFERENCES StatusVenda(idStatusVenda)
 );
 
 CREATE TABLE ItensVenda (
