@@ -127,3 +127,10 @@ CREATE TABLE ItensSaida (
     FOREIGN KEY (idTipoCaracteristica) REFERENCES TipoCaracteristica(idTipoCaracteristica),
     FOREIGN KEY (idProduto) REFERENCES Produto(idProduto)
 );
+
+CREATE TABLE ConfiguracaoAlertasQTD (
+    idConfiguracaoAlertasQTD INT PRIMARY KEY,
+    quantidadeAmarelo INT,
+    quantidadeVermelha INT,
+    quantidadeVioleta INT
+);
