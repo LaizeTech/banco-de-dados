@@ -61,6 +61,7 @@ CREATE TABLE Usuario (
     email VARCHAR(45),
     senha VARCHAR(45),
     acessoFinanceiro TINYINT,
+    statusAtivo TINYINT NOT NULL,
     idEmpresa INT,
     FOREIGN KEY (idEmpresa) REFERENCES Empresa(idEmpresa)
 );
