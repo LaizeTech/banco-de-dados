@@ -102,6 +102,7 @@ CREATE TABLE Saida (
     idSaida INT PRIMARY KEY,
     idEmpresa INT,
     idPlataforma INT,
+    idTipoSaida INT,
     dtVenda DATE,
     precoVenda DECIMAL(10,2),
     taxaVenda DECIMAL(10,2),
@@ -109,7 +110,8 @@ CREATE TABLE Saida (
     idStatusVenda INT,
     FOREIGN KEY (idEmpresa) REFERENCES Empresa(idEmpresa),
     FOREIGN KEY (idPlataforma) REFERENCES Plataforma(idPlataforma),
-    FOREIGN KEY (idStatusVenda) REFERENCES StatusVenda(idStatusVenda)
+    FOREIGN KEY (idStatusVenda) REFERENCES StatusVenda(idStatusVenda),
+    FOREIGN KEY (idTipoSaida) REFERENCES TipoSaida(idTipoSaida)
 );
 
 CREATE TABLE ItensSaida (
