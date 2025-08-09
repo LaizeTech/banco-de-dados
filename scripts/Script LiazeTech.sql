@@ -25,6 +25,7 @@ CREATE TABLE Produto (
     dtRegistro DATE,
     quantidadeProduto INT,
     statusAtivo TINYINT,
+    caminhoImagem VARCHAR(45),
     FOREIGN KEY (idCategoria) REFERENCES Categoria(idCategoria)
 );
 
@@ -105,7 +106,6 @@ CREATE TABLE Saida (
     idTipoSaida INT,
     dtVenda DATE,
     precoVenda DECIMAL(10,2),
-    taxaVenda DECIMAL(10,2),
     totalDesconto DECIMAL(10,2),
     idStatusVenda INT,
     FOREIGN KEY (idEmpresa) REFERENCES Empresa(idEmpresa),
