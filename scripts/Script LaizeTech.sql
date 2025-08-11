@@ -137,3 +137,43 @@ CREATE TABLE ConfiguracaoAlertasQTD (
     quantidadeVermelha INT,
     quantidadeVioleta INT
 );
+
+-- Trigger para entrada de produto no estoque
+DELIMITER $$
+
+CREATE TRIGGER trg_compra_produto_after_insert
+AFTER INSERT ON CompraProduto
+FOR EACH ROW
+BEGIN
+    -- Atualiza quantidade geral do produto
+    UPDATE Produto
+    SET quantidadeProduto = quantidadeProduto + NEW.quantidadeProduto
+    WHERE idProduto = NEW.idProduto;
+
+    -- Atualiza quantidade por característica, se aplicável
+    UPDATE ProdutoCaracteristica
+    SET quantidadeProdutoCaracteristica = quantidadeProdutoCaracteristica + NEW.quantidadeProduto
+    WHERE idProduto = NEW.idProduto;
+END $$
+
+DELIMITER ;
+
+-- Trigger para saída de produto no estoque
+DELIMITER $$
+
+CREATE TRIGGER trg_saida_produto_after_insert
+AFTER INSERT ON ItensSaida
+FOR EACH ROW
+BEGIN
+    -- Atualiza quantidade geral do produto
+    UPDATE Produto
+    SET quantidadeProduto = quantidadeProduto - NEW.quantidade
+    WHERE idProduto = NEW.idProduto;
+
+    -- Atualiza quantidade por característica
+    UPDATE ProdutoCaracteristica
+    SET quantidadeProdutoCaracteristica = quantidadeProdutoCaracteristica - NEW.quantidade
+    WHERE idProdutoCaracteristica = NEW.idProdutoCaracteristica;
+END $$
+
+DELIMITER ;
