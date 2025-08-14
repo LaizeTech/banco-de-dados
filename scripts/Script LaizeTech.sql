@@ -104,6 +104,7 @@ CREATE TABLE Saida (
     idEmpresa INT,
     idPlataforma INT,
     idTipoSaida INT,
+    numeroPedido VARCHAR(45),
     dtVenda DATE,
     precoVenda DECIMAL(10,2),
     totalDesconto DECIMAL(10,2),
