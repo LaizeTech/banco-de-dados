@@ -175,6 +175,12 @@ BEGIN
     UPDATE ProdutoCaracteristica
     SET quantidadeProdutoCaracteristica = quantidadeProdutoCaracteristica - NEW.quantidade
     WHERE idProdutoCaracteristica = NEW.idProdutoCaracteristica;
+    
+    -- Atualiza quantidade por característica por plataforma
+    UPDATE PlataformaProduto
+    SET quantidadeProdutoCaracteristica = quantidadeProdutoCaracteristica - NEW.quantidade
+    WHERE idProdutoCaracteristica = NEW.idProdutoCaracteristica
+    AND fkPlataforma = NEW.fkPlataforma;
 END $$
 
 DELIMITER ;
