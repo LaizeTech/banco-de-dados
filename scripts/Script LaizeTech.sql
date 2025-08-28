@@ -2,27 +2,27 @@ CREATE DATABASE LaizeTech;
 USE LaizeTech;
 
 CREATE TABLE Categoria (
-    idCategoria INT PRIMARY KEY,
+    idCategoria INT PRIMARY KEY AUTO_INCREMENT,
     nomeCategoria VARCHAR(45)
 );
 
 CREATE TABLE TipoCaracteristica (
-    idTipoCaracteristica INT PRIMARY KEY,
+    idTipoCaracteristica INT PRIMARY KEY AUTO_INCREMENT,
     nomeTipoCaracteristica VARCHAR(45)
 );
 
 CREATE TABLE Caracteristica (
-    idCaracteristica INT PRIMARY KEY,
+    idCaracteristica INT PRIMARY KEY AUTO_INCREMENT,
     idTipoCaracteristica INT,
     nomeCaracteristica VARCHAR(45),
     FOREIGN KEY (idTipoCaracteristica) REFERENCES TipoCaracteristica(idTipoCaracteristica)
 );
 
 CREATE TABLE Produto (
-    idProduto INT PRIMARY KEY,
+    idProduto INT PRIMARY KEY AUTO_INCREMENT,
     idCategoria INT,
     nomeProduto VARCHAR(45),
-    dtRegistro DATE,
+    dtRegistro DATE DEFAULT CURRENT_TIMESTAMP,
     quantidadeProduto INT,
     statusAtivo TINYINT,
     caminhoImagem VARCHAR(45),
@@ -30,7 +30,7 @@ CREATE TABLE Produto (
 );
 
 CREATE TABLE ProdutoCaracteristica (
-    idProdutoCaracteristica INT PRIMARY KEY,
+    idProdutoCaracteristica INT PRIMARY KEY AUTO_INCREMENT,
     idCaracteristica INT,
     idTipoCaracteristica INT,
     idProduto INT,
@@ -41,23 +41,23 @@ CREATE TABLE ProdutoCaracteristica (
 );
 
 CREATE TABLE CompraProduto (
-    idCompraProduto INT PRIMARY KEY,
+    idCompraProduto INT PRIMARY KEY AUTO_INCREMENT,
     fornecedor VARCHAR(50),
     precoCompra DECIMAL(10,2),
-    dtCompra DATE,
+    dtCompra DATE DEFAULT CURRENT_TIMESTAMP,
     quantidadeProduto INT,
     idProduto INT,
     FOREIGN KEY (idProduto) REFERENCES Produto(idProduto)
 );
 
 CREATE TABLE Empresa (
-    idEmpresa INT PRIMARY KEY,
+    idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
     nomeEmpresa VARCHAR(45),
     CNPJ CHAR(14)
 );
 
 CREATE TABLE Usuario (
-    idUsuario INT PRIMARY KEY,
+    idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45),
     email VARCHAR(45),
     senha VARCHAR(45),
@@ -68,7 +68,7 @@ CREATE TABLE Usuario (
 );
 
 CREATE TABLE Plataforma (
-    idPlataforma INT PRIMARY KEY,
+    idPlataforma INT PRIMARY KEY AUTO_INCREMENT,
     idEmpresa INT,
     nomePlataforma VARCHAR(45),
     status TINYINT,
@@ -76,12 +76,13 @@ CREATE TABLE Plataforma (
 );
 
 CREATE TABLE PlataformaProduto (
-    idPlataformaProduto INT PRIMARY KEY,
+    idPlataformaProduto INT PRIMARY KEY AUTO_INCREMENT,
     idPlataforma INT,
     idProdutoCaracteristica INT,
     idCaracteristica INT,
     idTipoCaracteristica INT,
     idProduto INT,
+    quantidadeProdutoPlataforma INT,
     FOREIGN KEY (idPlataforma) REFERENCES Plataforma(idPlataforma),
     FOREIGN KEY (idProdutoCaracteristica) REFERENCES ProdutoCaracteristica(idProdutoCaracteristica),
     FOREIGN KEY (idCaracteristica) REFERENCES Caracteristica(idCaracteristica),
@@ -90,22 +91,22 @@ CREATE TABLE PlataformaProduto (
 );
 
 CREATE TABLE TipoSaida (
-    idTipoSaida INT PRIMARY KEY,
+    idTipoSaida INT PRIMARY KEY AUTO_INCREMENT,
     nomeTipo VARCHAR(45)
 );
 
 CREATE TABLE StatusVenda (
-    idStatusVenda INT PRIMARY KEY,
+    idStatusVenda INT PRIMARY KEY AUTO_INCREMENT,
     nomeStatus ENUM('PENDENTE', 'FINALIZADA', 'CANCELADA')
 );
 
 CREATE TABLE Saida (
-    idSaida INT PRIMARY KEY,
+    idSaida INT PRIMARY KEY AUTO_INCREMENT,
     idEmpresa INT,
     idPlataforma INT,
     idTipoSaida INT,
     numeroPedido VARCHAR(45),
-    dtVenda DATE,
+    dtVenda DATE DEFAULT CURRENT_TIMESTAMP,
     precoVenda DECIMAL(10,2),
     totalDesconto DECIMAL(10,2),
     idStatusVenda INT,
@@ -116,7 +117,7 @@ CREATE TABLE Saida (
 );
 
 CREATE TABLE ItensSaida (
-    idItem INT PRIMARY KEY,
+    idItem INT PRIMARY KEY AUTO_INCREMENT,
     idSaida INT,
     idPlataforma INT,
     quantidade INT,
@@ -133,7 +134,7 @@ CREATE TABLE ItensSaida (
 );
 
 CREATE TABLE ConfiguracaoAlertasQTD (
-    idConfiguracaoAlertasQTD INT PRIMARY KEY,
+    idConfiguracaoAlertasQTD INT PRIMARY KEY AUTO_INCREMENT,
     quantidadeAmarelo INT,
     quantidadeVermelha INT,
     quantidadeVioleta INT
@@ -150,12 +151,6 @@ BEGIN
     UPDATE Produto
     SET quantidadeProduto = quantidadeProduto + NEW.quantidadeProduto
     WHERE idProduto = NEW.idProduto;
-
-    -- Atualiza quantidade por característica, se aplicável
-    UPDATE ProdutoCaracteristica
-    SET quantidadeProdutoCaracteristica = quantidadeProdutoCaracteristica + NEW.quantidadeProduto
-    WHERE idProduto = NEW.idProduto;
-END $$
 
 DELIMITER ;
 
