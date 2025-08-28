@@ -1,5 +1,5 @@
-CREATE DATABASE LaizeTech;
-USE LaizeTech;
+CREATE DATABASE laize_tech;
+USE laize_tech;
 
 CREATE TABLE Categoria (
     idCategoria INT PRIMARY KEY AUTO_INCREMENT,
@@ -21,8 +21,8 @@ CREATE TABLE Caracteristica (
 CREATE TABLE Produto (
     idProduto INT PRIMARY KEY AUTO_INCREMENT,
     idCategoria INT,
-    nomeProduto VARCHAR(45),
-    dtRegistro DATE DEFAULT CURRENT_TIMESTAMP,
+    nomeProduto VARCHAR(100),
+    dtRegistro DATETIME DEFAULT CURRENT_TIMESTAMP,
     quantidadeProduto INT,
     statusAtivo TINYINT,
     caminhoImagem VARCHAR(45),
@@ -44,7 +44,7 @@ CREATE TABLE CompraProduto (
     idCompraProduto INT PRIMARY KEY AUTO_INCREMENT,
     fornecedor VARCHAR(50),
     precoCompra DECIMAL(10,2),
-    dtCompra DATE DEFAULT CURRENT_TIMESTAMP,
+    dtCompra DATETIME DEFAULT CURRENT_TIMESTAMP,
     quantidadeProduto INT,
     idProduto INT,
     FOREIGN KEY (idProduto) REFERENCES Produto(idProduto)
@@ -106,7 +106,7 @@ CREATE TABLE Saida (
     idPlataforma INT,
     idTipoSaida INT,
     numeroPedido VARCHAR(45),
-    dtVenda DATE DEFAULT CURRENT_TIMESTAMP,
+    dtVenda DATETIME DEFAULT CURRENT_TIMESTAMP,
     precoVenda DECIMAL(10,2),
     totalDesconto DECIMAL(10,2),
     idStatusVenda INT,
@@ -173,9 +173,9 @@ BEGIN
     
     -- Atualiza quantidade por característica por plataforma
     UPDATE PlataformaProduto
-    SET quantidadeProdutoCaracteristica = quantidadeProdutoCaracteristica - NEW.quantidade
+    SET quantidadeProdutoPlataforma = quantidadeProdutoPlataforma - NEW.quantidade
     WHERE idProdutoCaracteristica = NEW.idProdutoCaracteristica
-    AND fkPlataforma = NEW.fkPlataforma;
+    AND idPlataforma = NEW.idPlataforma;
 END $$
 
 DELIMITER ;

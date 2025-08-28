@@ -1,9 +1,9 @@
-use LaizeTech;
+use laize_tech;
 
 INSERT INTO Empresa (idEmpresa, nomeEmpresa, CNPJ) VALUES (1, 'Laize Cosméticos', '12345678901234');
 
-INSERT INTO Usuario (nomeUsuario, emailUsuario, senhaUsuario, telefoneUsuario, nivelAcesso, idEmpresa) VALUES
-('LaizeAdmin', 'laize.admin@laize.com', 'senha123456', '11987654321', 1, 1);
+INSERT INTO Usuario (nome, email, senha, acessoFinanceiro, idEmpresa, statusAtivo) VALUES
+('LaizeAdmin', 'laize.admin@laize.com', 'senha123456', 1, 1, 1);
 
 INSERT INTO Plataforma (idEmpresa, nomePlataforma, status) VALUES
 (1, 'Shopee', 1),
