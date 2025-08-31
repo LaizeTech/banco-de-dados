@@ -64,48 +64,48 @@ INSERT INTO Categoria (idCategoria, nomeCategoria) VALUES
 (1, 'Maquiagem'),
 (2, 'Skincare');
 
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (1, 1, 'Esponja de maquiagem Mini star', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (2, 2, 'Brinde para Loja | Máscara facial para skincare', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (3, 1, 'batom de cacau personalizado 50 unidades', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (4, 1, 'batom de cacau 15 unidades', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (5, 1, 'Duo Lips Choco Fun Fenzza', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (6, 1, 'Brow Rise Gel para sobrancelhas RubyRose', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (7, 2, 'Máscara facial para Brindes | kit empreendedora', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (8, 1, 'Gloss Labial Radiant Kiss RubyRose', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (9, 1, 'Batom de cacau para brindes | Empreendedoras', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (10, 1, 'batom de cacau 20 UNI', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (11, 1, 'Blidagem Dapop', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (12, 1, 'Delineador a prova d’água Playboy', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (13, 1, 'Gloss Maça Max love', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (14, 2, 'Bronzer cremoso stick Sunkiss RubyRose', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (15, 2, 'Lapis labial draw mouth jasmyne', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (16, 2, 'Brindes para clientes | xuxinhas para empreendedoras', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (17, 1, 'Espelho Redondo 2 Faces de Mesa=', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (18, 1, 'Brindes de batom de cacau personalizado 80UNI', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (19, 1, 'CORRETIVO DE ALTA COBERTURA SMOOTH FEELING', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (20, 1, 'Pó Rosa Mosqueta Fenzza', NULL, 15, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (21, 1, 'Lip Gloss Glitter - Ruby Rose', NULL, 15, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (22, 2, 'Glossy Lips Obsidian-Ruby Rose Moonstone', NULL, 15, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (23, 2, 'Blush Jelly SP Colors', NULL, 15, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (24, 2, 'TINT CREAM CHOCO FUN', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (25, 1, 'Caneta Delineadora Eyeliner Marker Pink 21', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (26, 1, 'Lápis de Contorno Labial Jasmyne', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (27, 1, 'LIP GLOSS LADY BEAUTY RED GLOW', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (28, 1, 'Blindagem dapop', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (29, 1, 'Rímel I Love Volumão Luisance', NULL, 50, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (30, 2, 'Blush trio My life', NULL, 5, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (31, 2, 'Sérum melancia e kiwi Melu', NULL, 5, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (32, 2, 'Iluminador e contorno Amazing Bobbi Rara', NULL, 5, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (33, 1, 'Gel Modelador para Sobrancelhas Melu', NULL, 5, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (34, 1, 'Pó Facial Translucido Solto Cor 3- Playboy 16g', NULL, 5, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (35, 1, 'Esfoliante Labotrat Morango e Melancia', NULL, 3, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (36, 2, 'Gloss Maxlove Lip volumoso cor 08', NULL, 3, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (37, 2, 'Kit de mini pincéis', NULL, 3, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (38, 2, 'Esfoliante Corporal Rosa Mosqueta 250g - Porán', NULL, 0, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (39, 1, 'Brilho labial pola aylr', NULL, 0, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (40, 1, 'Gloss Labial com chaveirinho', NULL, 0, 1, NULL);
-INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES (41, 1, 'Sérum clareador e ÓLEO FACIAL DE CAMOMILA E CALÊNDULA', NULL, 50, 1, NULL);
-
+INSERT INTO Produto (idProduto, idCategoria, nomeProduto, dtRegistro, quantidadeProduto, statusAtivo, caminhoImagem) VALUES 
+(1, 1, 'Esponja de maquiagem Mini star', '2025-01-12', 50, 1, NULL),
+(2, 2, 'Brinde para Loja | Máscara facial para skincare', '2025-01-23', 50, 1, NULL),
+(3, 1, 'batom de cacau personalizado 50 unidades', '2025-02-05', 50, 1, NULL),
+(4, 1, 'batom de cacau 15 unidades', '2025-02-19', 50, 1, NULL),
+(5, 1, 'Duo Lips Choco Fun Fenzza', '2025-03-07', 50, 1, NULL),
+(6, 1, 'Brow Rise Gel para sobrancelhas RubyRose', '2025-03-21', 50, 1, NULL),
+(7, 2, 'Máscara facial para Brindes | kit empreendedora', '2025-04-02', 50, 1, NULL),
+(8, 1, 'Gloss Labial Radiant Kiss RubyRose', '2025-04-16', 50, 1, NULL),
+(9, 1, 'Batom de cacau para brindes | Empreendedoras', '2025-05-01', 50, 1, NULL),
+(10, 1, 'batom de cacau 20 UNI', '2025-05-15', 50, 1, NULL),
+(11, 1, 'Blidagem Dapop', '2025-05-27', 50, 1, NULL),
+(12, 1, 'Delineador a prova d’água Playboy', '2025-06-03', 50, 1, NULL),
+(13, 1, 'Gloss Maça Max love', '2025-06-18', 50, 1, NULL),
+(14, 2, 'Bronzer cremoso stick Sunkiss RubyRose', '2025-07-01', 50, 1, NULL),
+(15, 2, 'Lapis labial draw mouth jasmyne', '2025-07-14', 50, 1, NULL),
+(16, 2, 'Brindes para clientes | xuxinhas para empreendedoras', '2025-07-29', 50, 1, NULL),
+(17, 1, 'Espelho Redondo 2 Faces de Mesa=', '2025-08-05', 50, 1, NULL),
+(18, 1, 'Brindes de batom de cacau personalizado 80UNI', '2025-08-19', 50, 1, NULL),
+(19, 1, 'CORRETIVO DE ALTA COBERTURA SMOOTH FEELING', '2025-09-01', 50, 1, NULL),
+(20, 1, 'Pó Rosa Mosqueta Fenzza', '2025-09-13', 15, 1, NULL),
+(21, 1, 'Lip Gloss Glitter - Ruby Rose', '2025-09-27', 15, 1, NULL),
+(22, 2, 'Glossy Lips Obsidian-Ruby Rose Moonstone', '2025-10-04', 15, 1, NULL),
+(23, 2, 'Blush Jelly SP Colors', '2025-10-18', 15, 1, NULL),
+(24, 2, 'TINT CREAM CHOCO FUN', '2025-11-02', 50, 1, NULL),
+(25, 1, 'Caneta Delineadora Eyeliner Marker Pink 21', '2025-11-13', 50, 1, NULL),
+(26, 1, 'Lápis de Contorno Labial Jasmyne', '2025-11-27', 50, 1, NULL),
+(27, 1, 'LIP GLOSS LADY BEAUTY RED GLOW', '2025-12-04', 50, 1, NULL),
+(28, 1, 'Blindagem dapop', '2025-12-15', 50, 1, NULL),
+(29, 1, 'Rímel I Love Volumão Luisance', '2025-12-27', 50, 1, NULL),
+(30, 2, 'Blush trio My life', '2025-01-08', 5, 1, NULL),
+(31, 2, 'Sérum melancia e kiwi Melu', '2025-02-10', 5, 1, NULL),
+(32, 2, 'Iluminador e contorno Amazing Bobbi Rara', '2025-03-15', 5, 1, NULL),
+(33, 1, 'Gel Modelador para Sobrancelhas Melu', '2025-04-20', 5, 1, NULL),
+(34, 1, 'Pó Facial Translucido Solto Cor 3- Playboy 16g', '2025-05-25', 5, 1, NULL),
+(35, 1, 'Esfoliante Labotrat Morango e Melancia', '2025-06-30', 3, 1, NULL),
+(36, 2, 'Gloss Maxlove Lip volumoso cor 08', '2025-07-05', 3, 1, NULL),
+(37, 2, 'Kit de mini pincéis', '2025-08-10', 3, 1, NULL),
+(38, 2, 'Esfoliante Corporal Rosa Mosqueta 250g - Porán', '2025-09-15', 0, 1, NULL),
+(39, 1, 'Brilho labial pola aylr', '2025-10-20', 0, 1, NULL),
+(40, 1, 'Gloss Labial com chaveirinho', '2025-11-25', 0, 1, NULL),
+(41, 1, 'Sérum clareador e ÓLEO FACIAL DE CAMOMILA E CALÊNDULA', '2025-12-30', 50, 1, NULL);
 -- ===========================
 -- INSERTS PARA PRODUTOCARACTERISTICA
 -- Relacionando produtos às suas características baseado nos arquivos CSV
