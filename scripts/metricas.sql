@@ -1,184 +1,184 @@
--- Quantidade de funcionarios ativos
-SELECT count(idUsuario) 
+﻿-- Quantidade de funcionarios ativos
+SELECT count(id_usuario) 
 FROM Usuario
-WHERE statusAtivo = 1;
+WHERE status_ativo = 1;
 
--- Pegando o produto e a quantidade que estão abaixo da configuração de alerta
+-- Pegando o produto e a quantidade que estÃ£o abaixo da configuraÃ§Ã£o de alerta
 SELECT 
-    p.nomeProduto,
-    p.quantidadeProduto,
+    p.nome_produto,
+    p.quantidade_produto,
     CASE
-        WHEN p.quantidadeProduto < c.quantidadeVioleta THEN 'Alerta Violeta'
-        WHEN p.quantidadeProduto < c.quantidadeVermelha THEN 'Alerta Vermelho'
-        WHEN p.quantidadeProduto < c.quantidadeAmarelo THEN 'Alerta Amarelo'
+        WHEN p.quantidade_produto < c.quantidade_violeta THEN 'Alerta Violeta'
+        WHEN p.quantidade_produto < c.quantidade_vermelha THEN 'Alerta Vermelho'
+        WHEN p.quantidade_produto < c.quantidade_amarelo THEN 'Alerta Amarelo'
         ELSE 'OK'
     END AS nivelAlerta
 FROM Produto p
 JOIN ConfiguracaoAlertasQTD c ON 1 = 1
-WHERE p.statusAtivo = 1
+WHERE p.status_ativo = 1
   AND (
-      p.quantidadeProduto < c.quantidadeAmarelo
-      OR p.quantidadeProduto < c.quantidadeVermelha
-      OR p.quantidadeProduto < c.quantidadeVioleta
+      p.quantidade_produto < c.quantidade_amarelo
+      OR p.quantidade_produto < c.quantidade_vermelha
+      OR p.quantidade_produto < c.quantidade_violeta
   );
   
--- Receita total nos últimos 7 dias
+-- Receita total nos Ãºltimos 7 dias
 SELECT 
-    SUM(s.precoVenda) AS renda_bruta
+    SUM(s.preco_venda) AS renda_bruta
 FROM Saida s
-JOIN StatusVenda sv ON s.idStatusVenda = sv.idStatusVenda
-WHERE sv.idStatusVenda = 1
-  AND s.dtVenda >= CURDATE() - INTERVAL 6 DAY
-  AND s.idTipoSaida = 1
-GROUP BY s.dtVenda
-ORDER BY s.dtVenda DESC;
+JOIN StatusVenda sv ON s.id_status_venda = sv.id_status_venda
+WHERE sv.id_status_venda = 1
+  AND s.dt_venda >= CURDATE() - INTERVAL 6 DAY
+  AND s.id_tipo_saida = 1
+GROUP BY s.dt_venda
+ORDER BY s.dt_venda DESC;
 
--- Quantidades de vendas no mês por plataforma
+-- Quantidades de vendas no mÃªs por plataforma
 SELECT 
-    COUNT(s.idSaida) AS quantidade_venda, 
-    p.nomePlataforma AS plataforma
+    COUNT(s.id_saida) AS quantidade_venda, 
+    p.nome_plataforma AS plataforma
 FROM Saida s
-JOIN StatusVenda sv ON s.idStatusVenda = sv.idStatusVenda
-JOIN TipoSaida ts ON s.idTipoSaida = ts.idTipoSaida
-JOIN Plataforma p ON s.idPlataforma = p.idPlataforma
-WHERE ts.idTipoSaida = 1
-  AND sv.idStatusVenda = 1
-  AND MONTH(s.dtVenda) = MONTH(CURDATE())
-  AND YEAR(s.dtVenda) = YEAR(CURDATE())
+JOIN StatusVenda sv ON s.id_status_venda = sv.id_status_venda
+JOIN TipoSaida ts ON s.id_tipo_saida = ts.id_tipo_saida
+JOIN Plataforma p ON s.id_plataforma = p.id_plataforma
+WHERE ts.id_tipo_saida = 1
+  AND sv.id_status_venda = 1
+  AND MONTH(s.dt_venda) = MONTH(CURDATE())
+  AND YEAR(s.dt_venda) = YEAR(CURDATE())
 GROUP BY plataforma;
 
--- Quantidade de entradas nos últimos 3 dias
-SELECT COUNT(idCompraProduto) AS quantidade_compra
+-- Quantidade de entradas nos Ãºltimos 3 dias
+SELECT COUNT(id_compra_produto) AS quantidade_compra
 FROM CompraProduto
-WHERE dtCompra >= CURDATE() - INTERVAL 2 DAY;
+WHERE dt_compra >= CURDATE() - INTERVAL 2 DAY;
 
--- Quantidade de saídas nos últimos 3 dias
-SELECT COUNT(idSaida) AS quantidade_saida
+-- Quantidade de saÃ­das nos Ãºltimos 3 dias
+SELECT COUNT(id_saida) AS quantidade_saida
 FROM Saida
-WHERE dtVenda >= CURDATE() - INTERVAL 2 DAY;
+WHERE dt_venda >= CURDATE() - INTERVAL 2 DAY;
 
--- Entradas no mês atual (quantidade e valor total)
+-- Entradas no mÃªs atual (quantidade e valor total)
 CREATE OR REPLACE VIEW vw_compras_mes_atual AS
 SELECT 
-    COUNT(idCompraProduto) AS quantidade_compra,
-    SUM(precoCompra) AS valor_investido
+    COUNT(id_compra_produto) AS quantidade_compra,
+    SUM(preco_compra) AS valor_investido
 FROM CompraProduto
-WHERE MONTH(dtCompra) = MONTH(CURDATE())
-  AND YEAR(dtCompra) = YEAR(CURDATE());
+WHERE MONTH(dt_compra) = MONTH(CURDATE())
+  AND YEAR(dt_compra) = YEAR(CURDATE());
 
 -- Receita mensal atual por plataforma 
 CREATE OR REPLACE VIEW vw_receita_mensal AS
 SELECT 
-    SUM(s.precoVenda) AS receita_mensal
+    SUM(s.preco_venda) AS receita_mensal
 FROM Saida s
-JOIN StatusVenda sv ON s.idStatusVenda = sv.idStatusVenda
-WHERE s.idTipoSaida = 1
-  AND sv.idStatusVenda = 1
-  AND s.idPlataforma = 1 -- variável
-  AND MONTH(s.dtVenda) = MONTH(CURDATE())
-  AND YEAR(s.dtVenda) = YEAR(CURDATE());
+JOIN StatusVenda sv ON s.id_status_venda = sv.id_status_venda
+WHERE s.id_tipo_saida = 1
+  AND sv.id_status_venda = 1
+  AND s.id_plataforma = 1 -- variÃ¡vel
+  AND MONTH(s.dt_venda) = MONTH(CURDATE())
+  AND YEAR(s.dt_venda) = YEAR(CURDATE());
 
--- Últimos 5 produtos comprados
+-- Ãšltimos 5 produtos comprados
 SELECT 
-    p.nomeProduto,
-    cp.precoCompra,
-    cp.quantidadeProduto
+    p.nome_produto,
+    cp.preco_compra,
+    cp.quantidade_produto
 FROM CompraProduto cp
-JOIN Produto p ON cp.idProduto = p.idProduto
-ORDER BY cp.dtCompra DESC
+JOIN Produto p ON cp.id_produto = p.id_produto
+ORDER BY cp.dt_compra DESC
 LIMIT 5;
 
--- Top 5 produtos mais vendidos no mês atual
+-- Top 5 produtos mais vendidos no mÃªs atual
 CREATE OR REPLACE VIEW vw_top5_produtos_vendidos_mes AS
 SELECT 
-    p.nomeProduto,
+    p.nome_produto,
     SUM(isv.quantidade) AS total_vendido
 FROM ItensSaida isv
-JOIN Produto p ON isv.idProduto = p.idProduto
-JOIN Saida s ON isv.idSaida = s.idSaida
-WHERE MONTH(s.dtVenda) = MONTH(CURDATE())
-  AND YEAR(s.dtVenda) = YEAR(CURDATE())
-  AND s.idTipoSaida = 1
-  AND s.idStatusVenda = 1
-  AND s.idPlataforma = 1 -- variável
-GROUP BY p.nomeProduto
+JOIN Produto p ON isv.id_produto = p.id_produto
+JOIN Saida s ON isv.id_saida = s.id_saida
+WHERE MONTH(s.dt_venda) = MONTH(CURDATE())
+  AND YEAR(s.dt_venda) = YEAR(CURDATE())
+  AND s.id_tipo_saida = 1
+  AND s.id_status_venda = 1
+  AND s.id_plataforma = 1 -- variÃ¡vel
+GROUP BY p.nome_produto
 ORDER BY total_vendido DESC
 LIMIT 5;
 
--- Produtos inativos nos últimos 60 dias 
+-- Produtos inativos nos Ãºltimos 60 dias 
 CREATE OR REPLACE VIEW vw_produtos_inativos_60_dias AS
 SELECT 
-    p.idProduto,
-    p.nomeProduto
+    p.id_produto,
+    p.nome_produto
 FROM Produto p
-WHERE p.idProduto NOT IN (
-    SELECT DISTINCT isv.idProduto
+WHERE p.id_produto NOT IN (
+    SELECT DISTINCT isv.id_produto
     FROM ItensSaida isv
-    JOIN Saida s ON isv.idSaida = s.idSaida
-    WHERE s.dtVenda >= CURDATE() - INTERVAL 60 DAY
-      AND s.idTipoSaida = 1
-      AND s.idStatusVenda = 1
-      AND s.idPlataforma = 1 -- variável
+    JOIN Saida s ON isv.id_saida = s.id_saida
+    WHERE s.dt_venda >= CURDATE() - INTERVAL 60 DAY
+      AND s.id_tipo_saida = 1
+      AND s.id_status_venda = 1
+      AND s.id_plataforma = 1 -- variÃ¡vel
 )
-AND p.statusAtivo = 1;
+AND p.status_ativo = 1;
 
--- Receita dos últimos 4 meses agrupada por mês
+-- Receita dos Ãºltimos 4 meses agrupada por mÃªs
 CREATE OR REPLACE VIEW vw_receita_mensal_ultimos_4_meses AS
 SELECT 
-    DATE_FORMAT(s.dtVenda, '%Y-%m') AS mes,
-    SUM(s.precoVenda) AS receita_mensal
+    DATE_FORMAT(s.dt_venda, '%Y-%m') AS mes,
+    SUM(s.preco_venda) AS receita_mensal
 FROM Saida s
-JOIN StatusVenda sv ON s.idStatusVenda = sv.idStatusVenda
-WHERE s.idTipoSaida = 1
-  AND sv.idStatusVenda = 1
-  AND s.dtVenda >= CURDATE() - INTERVAL 3 MONTH
-GROUP BY DATE_FORMAT(s.dtVenda, '%Y-%m')
+JOIN StatusVenda sv ON s.id_status_venda = sv.id_status_venda
+WHERE s.id_tipo_saida = 1
+  AND sv.id_status_venda = 1
+  AND s.dt_venda >= CURDATE() - INTERVAL 3 MONTH
+GROUP BY DATE_FORMAT(s.dt_venda, '%Y-%m')
 ORDER BY mes;
 
 -- Receita bruta anual
 CREATE OR REPLACE VIEW vw_receita_anual_2024 AS
 SELECT 
-    YEAR(s.dtVenda) AS ano,
-    SUM(s.precoVenda) AS receita_bruta
+    YEAR(s.dt_venda) AS ano,
+    SUM(s.preco_venda) AS receita_bruta
 FROM Saida s
-WHERE s.idTipoSaida = 1
-  AND s.idStatusVenda = 1
-  AND YEAR(s.dtVenda) = 2024
-GROUP BY YEAR(s.dtVenda);
+WHERE s.id_tipo_saida = 1
+  AND s.id_status_venda = 1
+  AND YEAR(s.dt_venda) = 2024
+GROUP BY YEAR(s.dt_venda);
 
 -- Quantidade de vendas por plataforma no ano
 CREATE OR REPLACE VIEW vw_vendas_por_plataforma AS
 SELECT 
-    COUNT(s.idSaida) AS quantidade_vendas,
-    p.nomePlataforma AS plataforma
+    COUNT(s.id_saida) AS quantidade_vendas,
+    p.nome_plataforma AS plataforma
 FROM Saida s
-JOIN Plataforma p ON s.idPlataforma = p.idPlataforma
-WHERE s.idTipoSaida = 1
-  AND s.idStatusVenda = 1
-  AND YEAR(s.dtVenda) = 2024
-GROUP BY p.idPlataforma;
+JOIN Plataforma p ON s.id_plataforma = p.id_plataforma
+WHERE s.id_tipo_saida = 1
+  AND s.id_status_venda = 1
+  AND YEAR(s.dt_venda) = 2024
+GROUP BY p.id_plataforma;
 
--- Top 5 meses com mais saídas no ano
+-- Top 5 meses com mais saÃ­das no ano
 CREATE OR REPLACE VIEW vw_top5_meses_mais_vendas AS
 SELECT 
-    MONTH(s.dtVenda) AS mes,
-    COUNT(*) AS totalVendas
+    MONTH(s.dt_venda) AS mes,
+    COUNT(*) AS total_vendas
 FROM Saida s
-WHERE s.idTipoSaida = 1
-  AND s.idStatusVenda = 1
-  AND YEAR(s.dtVenda) = 2024
-GROUP BY MONTH(s.dtVenda)
-ORDER BY totalVendas DESC
+WHERE s.id_tipo_saida = 1
+  AND s.id_status_venda = 1
+  AND YEAR(s.dt_venda) = 2024
+GROUP BY MONTH(s.dt_venda)
+ORDER BY total_vendas DESC
 LIMIT 5;
 
 -- Valor bruto anual por plataforma
 CREATE OR REPLACE VIEW vw_valor_bruto_anual_por_plataforma AS
 SELECT 
-    SUM(s.precoVenda) AS valor_bruto,
-    p.nomePlataforma AS plataforma
+    SUM(s.preco_venda) AS valor_bruto,
+    p.nome_plataforma AS plataforma
 FROM Saida s
-JOIN Plataforma p ON s.idPlataforma = p.idPlataforma
-WHERE s.idTipoSaida = 1
-  AND s.idStatusVenda = 1
-  AND YEAR(s.dtVenda) = 2024
-GROUP BY p.idPlataforma;
+JOIN Plataforma p ON s.id_plataforma = p.id_plataforma
+WHERE s.id_tipo_saida = 1
+  AND s.id_status_venda = 1
+  AND YEAR(s.dt_venda) = 2024
+GROUP BY p.id_plataforma;

@@ -2,142 +2,142 @@ CREATE DATABASE laize_tech;
 USE laize_tech;
 
 CREATE TABLE Categoria (
-    idCategoria INT PRIMARY KEY AUTO_INCREMENT,
-    nomeCategoria VARCHAR(45)
+    id_categoria INT PRIMARY KEY AUTO_INCREMENT,
+    nome_categoria VARCHAR(45)
 );
 
 CREATE TABLE TipoCaracteristica (
-    idTipoCaracteristica INT PRIMARY KEY AUTO_INCREMENT,
-    nomeTipoCaracteristica VARCHAR(45)
+    id_tipo_caracteristica INT PRIMARY KEY AUTO_INCREMENT,
+    nome_tipo_caracteristica VARCHAR(45)
 );
 
 CREATE TABLE Caracteristica (
-    idCaracteristica INT PRIMARY KEY AUTO_INCREMENT,
-    idTipoCaracteristica INT,
-    nomeCaracteristica VARCHAR(45),
-    FOREIGN KEY (idTipoCaracteristica) REFERENCES TipoCaracteristica(idTipoCaracteristica)
+    id_caracteristica INT PRIMARY KEY AUTO_INCREMENT,
+    id_tipo_caracteristica INT,
+    nome_caracteristica VARCHAR(45),
+    FOREIGN KEY (id_tipo_caracteristica) REFERENCES TipoCaracteristica(id_tipo_caracteristica)
 );
 
 CREATE TABLE Produto (
-    idProduto INT PRIMARY KEY AUTO_INCREMENT,
-    idCategoria INT,
-    nomeProduto VARCHAR(100),
-    dtRegistro DATETIME DEFAULT CURRENT_TIMESTAMP,
-    quantidadeProduto INT,
-    statusAtivo TINYINT,
-    caminhoImagem VARCHAR(45),
-    FOREIGN KEY (idCategoria) REFERENCES Categoria(idCategoria)
+    id_produto INT PRIMARY KEY AUTO_INCREMENT,
+    id_categoria INT,
+    nome_produto VARCHAR(100),
+    dt_registro DATETIME DEFAULT CURRENT_TIMESTAMP,
+    quantidade_produto INT,
+    status_ativo TINYINT,
+    caminho_imagem VARCHAR(45),
+    FOREIGN KEY (id_categoria) REFERENCES Categoria(id_categoria)
 );
 
 CREATE TABLE ProdutoCaracteristica (
-    idProdutoCaracteristica INT PRIMARY KEY AUTO_INCREMENT,
-    idCaracteristica INT,
-    idTipoCaracteristica INT,
-    idProduto INT,
-    quantidadeProdutoCaracteristica INT,
-    FOREIGN KEY (idCaracteristica) REFERENCES Caracteristica(idCaracteristica),
-    FOREIGN KEY (idTipoCaracteristica) REFERENCES TipoCaracteristica(idTipoCaracteristica),
-    FOREIGN KEY (idProduto) REFERENCES Produto(idProduto)
+    id_produto_caracteristica INT PRIMARY KEY AUTO_INCREMENT,
+    id_caracteristica INT,
+    id_tipo_caracteristica INT,
+    id_produto INT,
+    quantidade_produto_caracteristica INT,
+    FOREIGN KEY (id_caracteristica) REFERENCES Caracteristica(id_caracteristica),
+    FOREIGN KEY (id_tipo_caracteristica) REFERENCES TipoCaracteristica(id_tipo_caracteristica),
+    FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
 );
 
 CREATE TABLE CompraProduto (
-    idCompraProduto INT PRIMARY KEY AUTO_INCREMENT,
+    id_compra_produto INT PRIMARY KEY AUTO_INCREMENT,
     fornecedor VARCHAR(50),
-    precoCompra DECIMAL(10,2),
-    dtCompra DATETIME DEFAULT CURRENT_TIMESTAMP,
-    quantidadeProduto INT,
-    idProduto INT,
-    FOREIGN KEY (idProduto) REFERENCES Produto(idProduto)
+    preco_compra DECIMAL(10,2),
+    dt_compra DATETIME DEFAULT CURRENT_TIMESTAMP,
+    quantidade_produto INT,
+    id_produto INT,
+    FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
 );
 
 CREATE TABLE Empresa (
-    idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
-    nomeEmpresa VARCHAR(45),
+    id_empresa INT PRIMARY KEY AUTO_INCREMENT,
+    nome_empresa VARCHAR(45),
     CNPJ CHAR(14)
 );
 
 CREATE TABLE Usuario (
-    idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45),
     email VARCHAR(45),
     senha VARCHAR(45),
-    acessoFinanceiro TINYINT,
-    statusAtivo TINYINT NOT NULL,
-    idEmpresa INT,
-    FOREIGN KEY (idEmpresa) REFERENCES Empresa(idEmpresa)
+    acesso_financeiro TINYINT,
+    status_ativo TINYINT NOT NULL,
+    id_empresa INT,
+    FOREIGN KEY (id_empresa) REFERENCES Empresa(id_empresa)
 );
 
 CREATE TABLE Plataforma (
-    idPlataforma INT PRIMARY KEY AUTO_INCREMENT,
-    idEmpresa INT,
-    nomePlataforma VARCHAR(45),
+    id_plataforma INT PRIMARY KEY AUTO_INCREMENT,
+    id_empresa INT,
+    nome_plataforma VARCHAR(45),
     status TINYINT,
-    FOREIGN KEY (idEmpresa) REFERENCES Empresa(idEmpresa)
+    FOREIGN KEY (id_empresa) REFERENCES Empresa(id_empresa)
 );
 
 CREATE TABLE PlataformaProduto (
-    idPlataformaProduto INT PRIMARY KEY AUTO_INCREMENT,
-    idPlataforma INT,
-    idProdutoCaracteristica INT,
-    idCaracteristica INT,
-    idTipoCaracteristica INT,
-    idProduto INT,
-    quantidadeProdutoPlataforma INT,
-    FOREIGN KEY (idPlataforma) REFERENCES Plataforma(idPlataforma),
-    FOREIGN KEY (idProdutoCaracteristica) REFERENCES ProdutoCaracteristica(idProdutoCaracteristica),
-    FOREIGN KEY (idCaracteristica) REFERENCES Caracteristica(idCaracteristica),
-    FOREIGN KEY (idTipoCaracteristica) REFERENCES TipoCaracteristica(idTipoCaracteristica),
-    FOREIGN KEY (idProduto) REFERENCES Produto(idProduto)
+    id_plataforma_produto INT PRIMARY KEY AUTO_INCREMENT,
+    id_plataforma INT,
+    id_produto_caracteristica INT,
+    id_caracteristica INT,
+    id_tipo_caracteristica INT,
+    id_produto INT,
+    quantidade_produto_plataforma INT,
+    FOREIGN KEY (id_plataforma) REFERENCES Plataforma(id_plataforma),
+    FOREIGN KEY (id_produto_caracteristica) REFERENCES ProdutoCaracteristica(id_produto_caracteristica),
+    FOREIGN KEY (id_caracteristica) REFERENCES Caracteristica(id_caracteristica),
+    FOREIGN KEY (id_tipo_caracteristica) REFERENCES TipoCaracteristica(id_tipo_caracteristica),
+    FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
 );
 
 CREATE TABLE TipoSaida (
-    idTipoSaida INT PRIMARY KEY AUTO_INCREMENT,
-    nomeTipo VARCHAR(45)
+    id_tipo_saida INT PRIMARY KEY AUTO_INCREMENT,
+    nome_tipo VARCHAR(45)
 );
 
 CREATE TABLE StatusVenda (
-    idStatusVenda INT PRIMARY KEY AUTO_INCREMENT,
-    nomeStatus ENUM('PENDENTE', 'FINALIZADA', 'CANCELADA')
+    id_status_venda INT PRIMARY KEY AUTO_INCREMENT,
+    nome_status ENUM('PENDENTE', 'FINALIZADA', 'CANCELADA')
 );
 
 CREATE TABLE Saida (
-    idSaida INT PRIMARY KEY AUTO_INCREMENT,
-    idEmpresa INT,
-    idPlataforma INT,
-    idTipoSaida INT,
-    numeroPedido VARCHAR(45),
-    dtVenda DATETIME DEFAULT CURRENT_TIMESTAMP,
-    precoVenda DECIMAL(10,2),
-    totalDesconto DECIMAL(10,2),
-    idStatusVenda INT,
-    FOREIGN KEY (idEmpresa) REFERENCES Empresa(idEmpresa),
-    FOREIGN KEY (idPlataforma) REFERENCES Plataforma(idPlataforma),
-    FOREIGN KEY (idStatusVenda) REFERENCES StatusVenda(idStatusVenda),
-    FOREIGN KEY (idTipoSaida) REFERENCES TipoSaida(idTipoSaida)
+    id_saida INT PRIMARY KEY AUTO_INCREMENT,
+    id_empresa INT,
+    id_plataforma INT,
+    id_tipo_saida INT,
+    numero_pedido VARCHAR(45),
+    dt_venda DATETIME DEFAULT CURRENT_TIMESTAMP,
+    preco_venda DECIMAL(10,2),
+    total_desconto DECIMAL(10,2),
+    id_status_venda INT,
+    FOREIGN KEY (id_empresa) REFERENCES Empresa(id_empresa),
+    FOREIGN KEY (id_plataforma) REFERENCES Plataforma(id_plataforma),
+    FOREIGN KEY (id_status_venda) REFERENCES StatusVenda(id_status_venda),
+    FOREIGN KEY (id_tipo_saida) REFERENCES TipoSaida(id_tipo_saida)
 );
 
 CREATE TABLE ItensSaida (
-    idItem INT PRIMARY KEY AUTO_INCREMENT,
-    idSaida INT,
-    idPlataforma INT,
+    id_item INT PRIMARY KEY AUTO_INCREMENT,
+    id_saida INT,
+    id_plataforma INT,
     quantidade INT,
-    idProdutoCaracteristica INT,
-    idCaracteristica INT,
-    idTipoCaracteristica INT,
-    idProduto INT,
-    FOREIGN KEY (idSaida) REFERENCES Saida(idSaida),
-    FOREIGN KEY (idPlataforma) REFERENCES Plataforma(idPlataforma),
-    FOREIGN KEY (idProdutoCaracteristica) REFERENCES ProdutoCaracteristica(idProdutoCaracteristica),
-    FOREIGN KEY (idCaracteristica) REFERENCES Caracteristica(idCaracteristica),
-    FOREIGN KEY (idTipoCaracteristica) REFERENCES TipoCaracteristica(idTipoCaracteristica),
-    FOREIGN KEY (idProduto) REFERENCES Produto(idProduto)
+    id_produto_caracteristica INT,
+    id_caracteristica INT,
+    id_tipo_caracteristica INT,
+    id_produto INT,
+    FOREIGN KEY (id_saida) REFERENCES Saida(id_saida),
+    FOREIGN KEY (id_plataforma) REFERENCES Plataforma(id_plataforma),
+    FOREIGN KEY (id_produto_caracteristica) REFERENCES ProdutoCaracteristica(id_produto_caracteristica),
+    FOREIGN KEY (id_caracteristica) REFERENCES Caracteristica(id_caracteristica),
+    FOREIGN KEY (id_tipo_caracteristica) REFERENCES TipoCaracteristica(id_tipo_caracteristica),
+    FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
 );
 
 CREATE TABLE ConfiguracaoAlertasQTD (
-    idConfiguracaoAlertasQTD INT PRIMARY KEY AUTO_INCREMENT,
-    quantidadeAmarelo INT,
-    quantidadeVermelha INT,
-    quantidadeVioleta INT
+    id_configuracao_alertas_qtd INT PRIMARY KEY AUTO_INCREMENT,
+    quantidade_amarelo INT,
+    quantidade_vermelha INT,
+    quantidade_violeta INT
 );
 
 -- Trigger para entrada de produto no estoque
@@ -149,8 +149,8 @@ FOR EACH ROW
 BEGIN
     -- Atualiza quantidade geral do produto
     UPDATE Produto
-    SET quantidadeProduto = quantidadeProduto + NEW.quantidadeProduto
-    WHERE idProduto = NEW.idProduto;
+    SET quantidade_produto = quantidade_produto + NEW.quantidade_produto
+    WHERE id_produto = NEW.id_produto;
 
 DELIMITER ;
 
@@ -163,19 +163,19 @@ FOR EACH ROW
 BEGIN
     -- Atualiza quantidade geral do produto
     UPDATE Produto
-    SET quantidadeProduto = quantidadeProduto - NEW.quantidade
-    WHERE idProduto = NEW.idProduto;
+    SET quantidade_produto = quantidade_produto - NEW.quantidade
+    WHERE id_produto = NEW.id_produto;
 
     -- Atualiza quantidade por característica
     UPDATE ProdutoCaracteristica
-    SET quantidadeProdutoCaracteristica = quantidadeProdutoCaracteristica - NEW.quantidade
-    WHERE idProdutoCaracteristica = NEW.idProdutoCaracteristica;
+    SET quantidade_produto_caracteristica = quantidade_produto_caracteristica - NEW.quantidade
+    WHERE id_produto_caracteristica = NEW.id_produto_caracteristica;
     
     -- Atualiza quantidade por característica por plataforma
     UPDATE PlataformaProduto
-    SET quantidadeProdutoPlataforma = quantidadeProdutoPlataforma - NEW.quantidade
-    WHERE idProdutoCaracteristica = NEW.idProdutoCaracteristica
-    AND idPlataforma = NEW.idPlataforma;
+    SET quantidade_produto_plataforma = quantidade_produto_plataforma - NEW.quantidade
+    WHERE id_produto_caracteristica = NEW.id_produto_caracteristica
+    AND id_plataforma = NEW.id_plataforma;
 END $$
 
 DELIMITER ;
