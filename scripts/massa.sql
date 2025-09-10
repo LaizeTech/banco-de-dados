@@ -10,21 +10,21 @@ INSERT INTO Plataforma (id_empresa, nome_plataforma, status) VALUES
 (1, 'Nuvemshop', 1),
 (1, 'Loja Física', 1);
 
-INSERT INTO ConfiguracaoAlertasQTD VALUES
+INSERT INTO Configuracao_AlertasQTD VALUES
 (DEFAULT, 5, 3, 0);
 
-INSERT INTO TipoSaida VALUES
+INSERT INTO Tipo_Saida VALUES
 (DEFAULT, 'Venda'),
 (DEFAULT, 'Devolução'),
 (DEFAULT, 'Troca'),
 (DEFAULT, 'Furto');
 
-INSERT INTO StatusVenda VALUES
+INSERT INTO Status_Venda VALUES
 (DEFAULT, 'FINALIZADA'),
 (DEFAULT, 'PENDENTE'),
 (DEFAULT, 'CANCELADA');
 
-INSERT INTO TipoCaracteristica (id_tipo_caracteristica, nome_tipo_caracteristica) VALUES
+INSERT INTO Tipo_Caracteristica (id_tipo_caracteristica, nome_tipo_caracteristica) VALUES
 (1, 'Cor'),
 (2, 'Sabor'),
 (3, 'Material'),
@@ -107,324 +107,324 @@ INSERT INTO Produto (id_produto, id_categoria, nome_produto, dt_registro, quanti
 (40, 1, 'Gloss Labial com chaveirinho', '2025-11-25', 0, 1, NULL),
 (41, 1, 'Sérum clareador e ÓLEO FACIAL DE CAMOMILA E CALÊNDULA', '2025-12-30', 50, 1, NULL);
 -- ===========================
--- INSERTS PARA PRODUTOCARACTERISTICA
+-- INSERTS PARA Produto_Caracteristica
 -- Relacionando produtos às suas características baseado nos arquivos CSV
 -- ===========================
 
 -- Produtos SEM características específicas recebem 'sem caracteristica' (id 23)
 -- Esponja de maquiagem Mini star
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 1, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 1, 0);
 
 -- Brinde para Loja | Máscara facial para skincare - múltiplas características
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (24, 1, 2, 0); -- 50 Pçs,Rosa
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (25, 1, 2, 0); -- 20 Pçs,Rosa
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (26, 1, 2, 0); -- 50 Pçs,Lilás
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (27, 1, 2, 0); -- 10 Pçs,Rosa
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (24, 1, 2, 0); -- 50 Pçs,Rosa
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (25, 1, 2, 0); -- 20 Pçs,Rosa
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (26, 1, 2, 0); -- 50 Pçs,Lilás
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (27, 1, 2, 0); -- 10 Pçs,Rosa
 
 -- batom de cacau personalizado 50 unidades
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 3, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 3, 0);
 
 -- batom de cacau 15 unidades
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (2, 1, 4, 0); -- Lilás
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (7, 1, 4, 0); -- Rosa Pastel
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (2, 1, 4, 0); -- Lilás
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (7, 1, 4, 0); -- Rosa Pastel
 
 -- Duo Lips Choco Fun Fenzza
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (3, 2, 5, 0); -- Brigadeiro
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (4, 2, 5, 0); -- Choco melo
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (8, 2, 5, 0); -- Pão de mel
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (3, 2, 5, 0); -- Brigadeiro
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (4, 2, 5, 0); -- Choco melo
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (8, 2, 5, 0); -- Pão de mel
 
 -- Brow Rise Gel para sobrancelhas RubyRose
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 6, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 6, 0);
 
 -- Máscara facial para Brindes | kit empreendedora
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (2, 1, 7, 0); -- Lilás
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (1, 1, 7, 0); -- Rosa
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (2, 1, 7, 0); -- Lilás
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (1, 1, 7, 0); -- Rosa
 
 -- Gloss Labial Radiant Kiss RubyRose
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (5, 3, 8, 0); -- RK40
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (5, 3, 8, 0); -- RK40
 
 -- Batom de cacau para brindes | Empreendedoras
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (1, 1, 9, 0); -- Rosa
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (6, 3, 9, 0); -- Personalizado
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (2, 1, 9, 0); -- Lilás
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (1, 1, 9, 0); -- Rosa
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (6, 3, 9, 0); -- Personalizado
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (2, 1, 9, 0); -- Lilás
 
 -- batom de cacau 20 UNI
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (9, 1, 10, 0); -- Lilás frase cuide-se
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (6, 3, 10, 0); -- Personalizado
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (9, 1, 10, 0); -- Lilás frase cuide-se
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (6, 3, 10, 0); -- Personalizado
 
 -- Blidagem Dapop
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 11, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 11, 0);
 
 -- Delineador a prova d'água Playboy
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 12, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 12, 0);
 
 -- Gloss Maça Max love
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 13, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 13, 0);
 
 -- Bronzer cremoso stick Sunkiss RubyRose
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (18, 1, 14, 0); -- Sunset Sienna
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (18, 1, 14, 0); -- Sunset Sienna
 
 -- Lapis labial draw mouth jasmyne
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (10, 1, 15, 0); -- cor 1
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (10, 1, 15, 0); -- cor 1
 
 -- Brindes para clientes | xuxinhas para empreendedoras
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (1, 1, 16, 0); -- Rosa
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (1, 1, 16, 0); -- Rosa
 
 -- Espelho Redondo 2 Faces de Mesa=
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 17, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 17, 0);
 
 -- Brindes de batom de cacau personalizado 80UNI
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 18, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 18, 0);
 
 -- CORRETIVO DE ALTA COBERTURA SMOOTH FEELING
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (28, 1, 19, 0); -- COR 03
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (29, 1, 19, 0); -- COR 02
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (28, 1, 19, 0); -- COR 03
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (29, 1, 19, 0); -- COR 02
 
 -- Pó Rosa Mosqueta Fenzza
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 20, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 20, 0);
 
 -- Lip Gloss Glitter - Ruby Rose
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (11, 1, 21, 0); -- Firefly
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (11, 1, 21, 0); -- Firefly
 
 -- Glossy Lips Obsidian-Ruby Rose Moonstone
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 22, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 22, 0);
 
 -- Blush Jelly SP Colors
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (12, 1, 23, 0); -- Cor 4
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (10, 1, 23, 0); -- cor 1
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (12, 1, 23, 0); -- Cor 4
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (10, 1, 23, 0); -- cor 1
 
 -- TINT CREAM CHOCO FUN
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (13, 2, 24, 0); -- Au lait( marrom claro)
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (15, 2, 24, 0); -- Flan (Vermelho)
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (13, 2, 24, 0); -- Au lait( marrom claro)
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (15, 2, 24, 0); -- Flan (Vermelho)
 
 -- Caneta Delineadora Eyeliner Marker Pink 21
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 25, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 25, 0);
 
 -- Lápis de Contorno Labial Jasmyne
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (14, 1, 26, 0); -- Cor 2
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (14, 1, 26, 0); -- Cor 2
 
 -- LIP GLOSS LADY BEAUTY RED GLOW
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 27, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 27, 0);
 
 -- Blindagem dapop
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 28, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 28, 0);
 
 -- Rímel I Love Volumão Luisance
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 29, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 29, 0);
 
 -- Blush trio My life
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (17, 1, 30, 0); -- Rosa claro
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (17, 1, 30, 0); -- Rosa claro
 
 -- Sérum melancia e kiwi Melu
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (16, 2, 31, 0); -- Melancia
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (16, 2, 31, 0); -- Melancia
 
 -- Iluminador e contorno Amazing Bobbi Rara
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 32, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 32, 0);
 
 -- Gel Modelador para Sobrancelhas Melu
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 33, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 33, 0);
 
 -- Pó Facial Translucido Solto Cor 3- Playboy 16g
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 34, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 34, 0);
 
 -- Esfoliante Labotrat Morango e Melancia
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (22, 2, 35, 0); -- morango
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (22, 2, 35, 0); -- morango
 
 -- Gloss Maxlove Lip volumoso cor 08
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 36, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 36, 0);
 
 -- Kit de mini pincéis
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 37, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 37, 0);
 
 -- Esfoliante Corporal Rosa Mosqueta 250g - Porán
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 38, 0);
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (23, 4, 38, 0);
 
 -- Brilho labial pola aylr
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (20, 1, 39, 0); -- Vermelho
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (20, 1, 39, 0); -- Vermelho
 
 -- Gloss Labial com chaveirinho
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (19, 1, 40, 0); -- Azul
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (19, 1, 40, 0); -- Azul
 
 -- Sérum clareador e ÓLEO FACIAL DE CAMOMILA E CALÊNDULA
-INSERT INTO ProdutoCaracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (21, 3, 41, 0); -- sérum clareador
+INSERT INTO Produto_Caracteristica (id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_caracteristica) VALUES (21, 3, 41, 0); -- sérum clareador
 
 -- ===========================
--- INSERTS PARA PLATAFORMAPRODUTO
--- Relacionando todos os ProdutoCaracteristica com todas as plataformas
+-- INSERTS PARA Plataforma_Produto
+-- Relacionando todos os Produto_Caracteristica com todas as plataformas
 -- ===========================
 
--- Para cada ProdutoCaracteristica, criar relacionamento com todas as 3 plataformas (Shopee=1, Nuvemshop=2, Loja Física=3)
+-- Para cada Produto_Caracteristica, criar relacionamento com todas as 3 plataformas (Shopee=1, Nuvemshop=2, Loja Física=3)
 
--- ProdutoCaracteristica ID 1: Esponja de maquiagem Mini star (sem característica)
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 1, 23, 4, 1, 0);
+-- Produto_Caracteristica ID 1: Esponja de maquiagem Mini star (sem característica)
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 1, 23, 4, 1, 0);
 
--- ProdutoCaracteristica ID 2-5: Brinde para Loja | Máscara facial para skincare (múltiplas características)
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 2, 24, 1, 2, 0);
+-- Produto_Caracteristica ID 2-5: Brinde para Loja | Máscara facial para skincare (múltiplas características)
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 2, 24, 1, 2, 0);
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 3, 25, 1, 2, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 3, 25, 1, 2, 0);
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 4, 26, 1, 2, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 4, 26, 1, 2, 0);
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 5, 27, 1, 2, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 5, 27, 1, 2, 0);
 
--- ProdutoCaracteristica ID 6: batom de cacau personalizado 50 unidades
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 6, 23, 4, 3, 0);
+-- Produto_Caracteristica ID 6: batom de cacau personalizado 50 unidades
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 6, 23, 4, 3, 0);
 
--- ProdutoCaracteristica ID 7-8: batom de cacau 15 unidades
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 7, 2, 1, 4, 0);
+-- Produto_Caracteristica ID 7-8: batom de cacau 15 unidades
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 7, 2, 1, 4, 0);
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 8, 7, 1, 4, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 8, 7, 1, 4, 0);
 
--- ProdutoCaracteristica ID 9-11: Duo Lips Choco Fun Fenzza
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 9, 3, 2, 5, 0);
+-- Produto_Caracteristica ID 9-11: Duo Lips Choco Fun Fenzza
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 9, 3, 2, 5, 0);
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 10, 4, 2, 5, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 10, 4, 2, 5, 0);
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 11, 8, 2, 5, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 11, 8, 2, 5, 0);
 
--- ProdutoCaracteristica ID 12: Brow Rise Gel para sobrancelhas RubyRose
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 12, 23, 4, 6, 0);
+-- Produto_Caracteristica ID 12: Brow Rise Gel para sobrancelhas RubyRose
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 12, 23, 4, 6, 0);
 
--- ProdutoCaracteristica ID 13-14: Máscara facial para Brindes | kit empreendedora
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 13, 2, 1, 7, 0);
+-- Produto_Caracteristica ID 13-14: Máscara facial para Brindes | kit empreendedora
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 13, 2, 1, 7, 0);
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 14, 1, 1, 7, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 14, 1, 1, 7, 0);
 
--- ProdutoCaracteristica ID 15: Gloss Labial Radiant Kiss RubyRose
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 15, 5, 3, 8, 0);
+-- Produto_Caracteristica ID 15: Gloss Labial Radiant Kiss RubyRose
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 15, 5, 3, 8, 0);
 
--- ProdutoCaracteristica ID 16-18: Batom de cacau para brindes | Empreendedoras
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 16, 1, 1, 9, 0);
+-- Produto_Caracteristica ID 16-18: Batom de cacau para brindes | Empreendedoras
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 16, 1, 1, 9, 0);
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 17, 6, 3, 9, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 17, 6, 3, 9, 0);
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 18, 2, 1, 9, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 18, 2, 1, 9, 0);
 
--- ProdutoCaracteristica ID 19-20: batom de cacau 20 UNI
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 19, 9, 1, 10, 0);
+-- Produto_Caracteristica ID 19-20: batom de cacau 20 UNI
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 19, 9, 1, 10, 0);
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 20, 6, 3, 10, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 20, 6, 3, 10, 0);
 
 -- Continuando com os demais produtos...
--- ProdutoCaracteristica ID 21: Blidagem Dapop
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 21, 23, 4, 11, 0);
+-- Produto_Caracteristica ID 21: Blidagem Dapop
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 21, 23, 4, 11, 0);
 
--- ProdutoCaracteristica ID 22: Delineador a prova d'água Playboy
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 22, 23, 4, 12, 0);
+-- Produto_Caracteristica ID 22: Delineador a prova d'água Playboy
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 22, 23, 4, 12, 0);
 
--- ProdutoCaracteristica ID 23: Gloss Maça Max love
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 23, 23, 4, 13, 0);
+-- Produto_Caracteristica ID 23: Gloss Maça Max love
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 23, 23, 4, 13, 0);
 
--- ProdutoCaracteristica ID 24: Bronzer cremoso stick Sunkiss RubyRose
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 24, 18, 1, 14, 0);
+-- Produto_Caracteristica ID 24: Bronzer cremoso stick Sunkiss RubyRose
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 24, 18, 1, 14, 0);
 
--- ProdutoCaracteristica ID 25: Lapis labial draw mouth jasmyne
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 25, 10, 1, 15, 0);
+-- Produto_Caracteristica ID 25: Lapis labial draw mouth jasmyne
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 25, 10, 1, 15, 0);
 
--- ProdutoCaracteristica ID 26: Brindes para clientes | xuxinhas para empreendedoras
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 26, 1, 1, 16, 0);
+-- Produto_Caracteristica ID 26: Brindes para clientes | xuxinhas para empreendedoras
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 26, 1, 1, 16, 0);
 
--- ProdutoCaracteristica ID 27: Espelho Redondo 2 Faces de Mesa=
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 27, 23, 4, 17, 0);
+-- Produto_Caracteristica ID 27: Espelho Redondo 2 Faces de Mesa=
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 27, 23, 4, 17, 0);
 
--- ProdutoCaracteristica ID 28: Brindes de batom de cacau personalizado 80UNI
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 28, 23, 4, 18, 0);
+-- Produto_Caracteristica ID 28: Brindes de batom de cacau personalizado 80UNI
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (1, 28, 23, 4, 18, 0);
 
--- ProdutoCaracteristica ID 29-30: CORRETIVO DE ALTA COBERTURA SMOOTH FEELING
+-- Produto_Caracteristica ID 29-30: CORRETIVO DE ALTA COBERTURA SMOOTH FEELING
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 29, 28, 1, 19, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 29, 28, 1, 19, 0);
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 30, 29, 1, 19, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 30, 29, 1, 19, 0);
 
--- ProdutoCaracteristica ID 31: Pó Rosa Mosqueta Fenzza
+-- Produto_Caracteristica ID 31: Pó Rosa Mosqueta Fenzza
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 31, 23, 4, 20, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 31, 23, 4, 20, 0);
 
--- ProdutoCaracteristica ID 32: Lip Gloss Glitter - Ruby Rose
+-- Produto_Caracteristica ID 32: Lip Gloss Glitter - Ruby Rose
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 32, 11, 1, 21, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 32, 11, 1, 21, 0);
 
--- ProdutoCaracteristica ID 33: Glossy Lips Obsidian-Ruby Rose Moonstone
+-- Produto_Caracteristica ID 33: Glossy Lips Obsidian-Ruby Rose Moonstone
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 33, 23, 4, 22, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 33, 23, 4, 22, 0);
 
--- ProdutoCaracteristica ID 34-35: Blush Jelly SP Colors
+-- Produto_Caracteristica ID 34-35: Blush Jelly SP Colors
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 34, 12, 1, 23, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 34, 12, 1, 23, 0);
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 35, 10, 1, 23, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 35, 10, 1, 23, 0);
 
--- ProdutoCaracteristica ID 36-37: TINT CREAM CHOCO FUN
+-- Produto_Caracteristica ID 36-37: TINT CREAM CHOCO FUN
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 36, 13, 2, 24, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 36, 13, 2, 24, 0);
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 37, 15, 2, 24, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 37, 15, 2, 24, 0);
 
--- ProdutoCaracteristica ID 38: Caneta Delineadora Eyeliner Marker Pink 21
+-- Produto_Caracteristica ID 38: Caneta Delineadora Eyeliner Marker Pink 21
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 38, 23, 4, 25, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 38, 23, 4, 25, 0);
 
--- ProdutoCaracteristica ID 39: Lápis de Contorno Labial Jasmyne
+-- Produto_Caracteristica ID 39: Lápis de Contorno Labial Jasmyne
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 39, 14, 1, 26, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 39, 14, 1, 26, 0);
 
--- ProdutoCaracteristica ID 40: LIP GLOSS LADY BEAUTY RED GLOW
+-- Produto_Caracteristica ID 40: LIP GLOSS LADY BEAUTY RED GLOW
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 40, 23, 4, 27, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 40, 23, 4, 27, 0);
 
--- ProdutoCaracteristica ID 41: Blindagem dapop
+-- Produto_Caracteristica ID 41: Blindagem dapop
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 41, 23, 4, 28, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 41, 23, 4, 28, 0);
 
--- ProdutoCaracteristica ID 42: Rímel I Love Volumão Luisance
+-- Produto_Caracteristica ID 42: Rímel I Love Volumão Luisance
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 42, 23, 4, 29, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 42, 23, 4, 29, 0);
 
--- ProdutoCaracteristica ID 43: Blush trio My life
+-- Produto_Caracteristica ID 43: Blush trio My life
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 43, 17, 1, 30, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 43, 17, 1, 30, 0);
 
--- ProdutoCaracteristica ID 44: Sérum melancia e kiwi Melu
+-- Produto_Caracteristica ID 44: Sérum melancia e kiwi Melu
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 44, 16, 2, 31, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 44, 16, 2, 31, 0);
 
--- ProdutoCaracteristica ID 45: Iluminador e contorno Amazing Bobbi Rara
+-- Produto_Caracteristica ID 45: Iluminador e contorno Amazing Bobbi Rara
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 45, 23, 4, 32, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 45, 23, 4, 32, 0);
 
--- ProdutoCaracteristica ID 46: Gel Modelador para Sobrancelhas Melu
+-- Produto_Caracteristica ID 46: Gel Modelador para Sobrancelhas Melu
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 46, 23, 4, 33, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 46, 23, 4, 33, 0);
 
--- ProdutoCaracteristica ID 47: Pó Facial Translucido Solto Cor 3- Playboy 16g
+-- Produto_Caracteristica ID 47: Pó Facial Translucido Solto Cor 3- Playboy 16g
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 47, 23, 4, 34, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 47, 23, 4, 34, 0);
 
--- ProdutoCaracteristica ID 48: Esfoliante Labotrat Morango e Melancia
+-- Produto_Caracteristica ID 48: Esfoliante Labotrat Morango e Melancia
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 48, 22, 2, 35, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 48, 22, 2, 35, 0);
 
--- ProdutoCaracteristica ID 49: Gloss Maxlove Lip volumoso cor 08
+-- Produto_Caracteristica ID 49: Gloss Maxlove Lip volumoso cor 08
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 49, 23, 4, 36, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 49, 23, 4, 36, 0);
 
--- ProdutoCaracteristica ID 50: Kit de mini pincéis
+-- Produto_Caracteristica ID 50: Kit de mini pincéis
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 50, 23, 4, 37, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 50, 23, 4, 37, 0);
 
--- ProdutoCaracteristica ID 51: Esfoliante Corporal Rosa Mosqueta 250g - Porán
+-- Produto_Caracteristica ID 51: Esfoliante Corporal Rosa Mosqueta 250g - Porán
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 51, 23, 4, 38, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 51, 23, 4, 38, 0);
 
--- ProdutoCaracteristica ID 52: Brilho labial pola aylr
+-- Produto_Caracteristica ID 52: Brilho labial pola aylr
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 52, 20, 1, 39, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 52, 20, 1, 39, 0);
 
--- ProdutoCaracteristica ID 53: Gloss Labial com chaveirinho
+-- Produto_Caracteristica ID 53: Gloss Labial com chaveirinho
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 53, 19, 1, 40, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 53, 19, 1, 40, 0);
 
--- ProdutoCaracteristica ID 54: Sérum clareador e ÓLEO FACIAL DE CAMOMILA E CALÊNDULA
+-- Produto_Caracteristica ID 54: Sérum clareador e ÓLEO FACIAL DE CAMOMILA E CALÊNDULA
 
-INSERT INTO PlataformaProduto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 54, 21, 3, 41, 0);
+INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 54, 21, 3, 41, 0);
 
