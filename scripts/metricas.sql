@@ -14,7 +14,7 @@ SELECT
         ELSE 'OK'
     END AS nivelAlerta
 FROM Produto p
-JOIN ConfiguracaoAlertasQTD c ON 1 = 1
+JOIN Configuracao_AlertasQTD c ON 1 = 1
 WHERE p.status_ativo = 1
   AND (
       p.quantidade_produto < c.quantidade_amarelo
@@ -26,7 +26,7 @@ WHERE p.status_ativo = 1
 SELECT 
     SUM(s.preco_venda) AS renda_bruta
 FROM Saida s
-JOIN StatusVenda sv ON s.id_status_venda = sv.id_status_venda
+JOIN Status_Venda sv ON s.id_status_venda = sv.id_status_venda
 WHERE sv.id_status_venda = 1
   AND s.dt_venda >= CURDATE() - INTERVAL 6 DAY
   AND s.id_tipo_saida = 1
@@ -37,15 +37,15 @@ ORDER BY s.dt_venda DESC;
 SELECT 
     COUNT(s.id_saida) AS quantidade_venda, 
     p.nome_plataforma AS plataforma
-FROM Saida s
-JOIN StatusVenda sv ON s.id_status_venda = sv.id_status_venda
-JOIN TipoSaida ts ON s.id_tipo_saida = ts.id_tipo_saida
-JOIN Plataforma p ON s.id_plataforma = p.id_plataforma
+FROM saida s
+JOIN status_venda sv ON s.id_status_venda = sv.id_status_venda
+JOIN tipo_saida ts ON s.id_tipo_saida = ts.id_tipo_saida
+JOIN plataforma p ON s.id_plataforma = p.id_plataforma
 WHERE ts.id_tipo_saida = 1
   AND sv.id_status_venda = 1
   AND MONTH(s.dt_venda) = MONTH(CURDATE())
   AND YEAR(s.dt_venda) = YEAR(CURDATE())
-GROUP BY plataforma;
+GROUP BY p.nome_plataforma;
 
 -- Quantidade de entradas nos Ãºltimos 3 dias
 SELECT COUNT(id_compra_produto) AS quantidade_compra
