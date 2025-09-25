@@ -49,7 +49,7 @@ GROUP BY p.nome_plataforma;
 
 -- Quantidade de entradas nos Ãºltimos 3 dias
 SELECT COUNT(id_compra_produto) AS quantidade_compra
-FROM CompraProduto
+FROM Compra_Produto
 WHERE dt_compra >= CURDATE() - INTERVAL 2 DAY;
 
 -- Quantidade de saÃ­das nos Ãºltimos 3 dias
@@ -62,7 +62,7 @@ CREATE OR REPLACE VIEW vw_compras_mes_atual AS
 SELECT 
     COUNT(id_compra_produto) AS quantidade_compra,
     SUM(preco_compra) AS valor_investido
-FROM CompraProduto
+FROM Compra_Produto
 WHERE MONTH(dt_compra) = MONTH(CURDATE())
   AND YEAR(dt_compra) = YEAR(CURDATE());
 
@@ -71,7 +71,7 @@ CREATE OR REPLACE VIEW vw_receita_mensal AS
 SELECT 
     SUM(s.preco_venda) AS receita_mensal
 FROM Saida s
-JOIN StatusVenda sv ON s.id_status_venda = sv.id_status_venda
+JOIN Status_Venda sv ON s.id_status_venda = sv.id_status_venda
 WHERE s.id_tipo_saida = 1
   AND sv.id_status_venda = 1
   AND s.id_plataforma = 1 -- variÃ¡vel
@@ -83,7 +83,7 @@ SELECT
     p.nome_produto,
     cp.preco_compra,
     cp.quantidade_produto
-FROM CompraProduto cp
+FROM Compra_Produto cp
 JOIN Produto p ON cp.id_produto = p.id_produto
 ORDER BY cp.dt_compra DESC
 LIMIT 5;
@@ -93,7 +93,7 @@ CREATE OR REPLACE VIEW vw_top5_produtos_vendidos_mes AS
 SELECT 
     p.nome_produto,
     SUM(isv.quantidade) AS total_vendido
-FROM ItensSaida isv
+FROM Itens_Saida isv
 JOIN Produto p ON isv.id_produto = p.id_produto
 JOIN Saida s ON isv.id_saida = s.id_saida
 WHERE MONTH(s.dt_venda) = MONTH(CURDATE())
@@ -113,7 +113,7 @@ SELECT
 FROM Produto p
 WHERE p.id_produto NOT IN (
     SELECT DISTINCT isv.id_produto
-    FROM ItensSaida isv
+    FROM Itens_Saida isv
     JOIN Saida s ON isv.id_saida = s.id_saida
     WHERE s.dt_venda >= CURDATE() - INTERVAL 60 DAY
       AND s.id_tipo_saida = 1
@@ -128,7 +128,7 @@ SELECT
     DATE_FORMAT(s.dt_venda, '%Y-%m') AS mes,
     SUM(s.preco_venda) AS receita_mensal
 FROM Saida s
-JOIN StatusVenda sv ON s.id_status_venda = sv.id_status_venda
+JOIN Status_Venda sv ON s.id_status_venda = sv.id_status_venda
 WHERE s.id_tipo_saida = 1
   AND sv.id_status_venda = 1
   AND s.dt_venda >= CURDATE() - INTERVAL 3 MONTH
