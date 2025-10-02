@@ -3,7 +3,8 @@ use laize_tech;
 INSERT INTO Empresa (id_empresa, nome_empresa, CNPJ) VALUES (1, 'Laize Cosméticos', '12345678901234');
 
 INSERT INTO Usuario (nome, email, senha, acesso_financeiro, id_empresa, status_ativo) VALUES
-('LaizeAdmin', 'laize.admin@laize.com', 'senha123456', 1, 1, 1);
+('LaizeAdmin', 'laize.admin@laize.com', 'senha123456', 1, 1, 1),
+('FuncLaize', 'laize.func@laize.com', 'senha123456', 0, 1, 1);
 
 INSERT INTO Plataforma (id_empresa, nome_plataforma, status) VALUES
 (1, 'Shopee', 1),
@@ -428,3 +429,9 @@ INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_car
 
 INSERT INTO Plataforma_Produto (id_plataforma, id_produto_caracteristica, id_caracteristica, id_tipo_caracteristica, id_produto, quantidade_produto_plataforma) VALUES (2, 54, 21, 3, 41, 0);
 
+INSERT INTO Compra_Produto (fornecedor, preco_compra, dt_compra, quantidade_produto, id_produto) VALUES 
+('Fornecedor ABC Cosméticos', 15.50, '2025-01-15 10:30:00', 100, 1),
+('Distribuidora Beauty', 22.00, '2025-01-16 14:20:00', 50, 2),
+('Fornecedor XYZ Ltda', 8.75, '2025-01-17 09:15:00', 200, 3),
+('Beauty Supply Co', 35.00, '2025-01-18 16:45:00', 25, 4),
+('Cosméticos Premium', 12.30, '2025-01-19 11:00:00', 75, 5);
